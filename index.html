@@ -781,9 +781,33 @@
                 margin-bottom: 30px;
             }
         }
+       /* Google Translate */
+      #google_translate_element {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
     </style>
 </head>
 <body>
+    <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'ar',
+    includedLanguages: 'en,fr,es,de,ru,zh-CN,ja,pt,it,hi,tr,ur,fa,id,ms', // Add more as needed
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- شريط التصفح العلوي -->
     <header>
         <div class="container">
@@ -801,7 +825,7 @@
                 </ul>
                 <div class="auth-buttons">
                     <a href="#" class="btn btn-secondary">تسجيل الدخول</a>
-                    <a href="#" class="btn btn-primary">حساب جديد</a>
+                    <a href="register.php" class="btn btn-primary">حساب جديد</a>
                 </div>
             </div>
         </div>
@@ -824,7 +848,7 @@
                         <a href="#" class="btn btn-secondary">عرض تجريبي</a>
                     </div>
                 </div>
-               
+                 
             </div>
         </div>
     </section>
@@ -1022,6 +1046,7 @@
     </footer>
 
     <script>
+        
         // كود لجعل العناصر تظهر عند التمرير
         document.addEventListener('DOMContentLoaded', function() {
             const animateElements = document.querySelectorAll('.animate-on-scroll');
